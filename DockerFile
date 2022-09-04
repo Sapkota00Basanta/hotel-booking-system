@@ -1,0 +1,19 @@
+# Using general node image as builder and installing dependencies
+
+# Generating dist folder
+FROM node:lts-alpine AS build-env
+WORKDIR /app
+ADD . .
+RUN \
+    yarn install && \
+    yarn build
+WORKDIR /app/dist/
+RUN \
+    yarn install --prod
+CMD ["yarn","start"]
+
+# Building Image
+# FROM gitlab.vairav.net:5050/vairav-development-team/report-engine/poc-report-engine-backend/base-image:latest
+# WORKDIR /app
+# COPY --from=build-env /app/dist/ /app
+# CMD ["node","index.js"]

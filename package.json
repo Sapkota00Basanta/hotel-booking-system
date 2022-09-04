@@ -1,0 +1,32 @@
+{
+  "name": "hotel-booking-application",
+  "version": "1.0.0",
+  "description": "Hotel Booking Application",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.ts | pino-pretty",
+    "dev:debug": "nodemon --exec \"node -r ts-node/register --inspect-brk\" index.ts | pino-pretty",
+    "build": "ts-node build.ts && tsc"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-openapi-validator": "^4.13.8",
+    "pino": "^8.4.2"
+  },
+  "devDependencies": {
+    "cypress": "^10.7.0",
+    "nodemon": "^2.0.19",
+    "pino-pretty": "^9.1.0",
+    "shelljs": "^0.8.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.2"
+  },
+  "engines": {
+    "node": "16.17.0"
+  }
+}
