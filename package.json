@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "Hotel Booking Application",
   "main": "dist/index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.ts | pino-pretty",
-    "dev:debug": "nodemon --exec \"node -r ts-node/register --inspect-brk\" index.ts | pino-pretty",
+    "dev": "nodemon server/index.ts | pino-pretty",
+    "dev:debug": "nodemon --exec \"node -r ts-node/register --inspect-brk\" server/index.ts | pino-pretty",
     "build": "ts-node build.ts && tsc"
   },
   "dependencies": {
@@ -16,9 +17,12 @@
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "express-openapi-validator": "^4.13.8",
+    "mongoose": "^6.5.4",
     "pino": "^8.4.2"
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.3",
+    "@types/cors": "^2.8.12",
     "cypress": "^10.7.0",
     "nodemon": "^2.0.19",
     "pino-pretty": "^9.1.0",

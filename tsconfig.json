@@ -24,7 +24,7 @@
       "allowJs": true,
       "removeComments": true
     },
-    "include": ["api/**/*.ts", "api/**/*.js"],
+    "include": ["server/**/*.ts", "server/**/*.js"],
     "exclude": ["node_modules"]
   }
   
