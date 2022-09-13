@@ -17,8 +17,9 @@ mongoose.connection.on(`disconnected`, () => {
   logger.warn(`Database Connection is disconnected!`);
 });
 
-mongoose.connection.on(`connected`, () => {
-  logger.warn(`Database Connection is Succefull!`);
-});
+//Currently this functionality is not needed!
+// mongoose.connection.on(`connected`, () => {
+//   logger.warn(`Database Connection is Succefull!`);
+// });
 
 export default dbConnection;

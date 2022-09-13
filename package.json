@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Hotel Booking Application",
   "main": "dist/index.js",
-  "type": "module",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon server/index.ts | pino-pretty",
