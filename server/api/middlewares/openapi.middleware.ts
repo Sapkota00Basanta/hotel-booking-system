@@ -8,7 +8,7 @@ import rootDir from "../../common/rootPath";
 import * as openApiValidator from "express-openapi-validator";
 import express, { Application } from "express";
 
-const openApiSpecification = path.join(`${rootDir}/server/common/open-api.yml`);
+const openApiSpecification = path.join(`${rootDir}/common/open-api.yml`);
 const responseValidation = !!(
   process.env.OPENAPI_ENABLE_RESPONSE_VALIDATION &&
   process.env.OPENAPI_ENABLE_RESPONSE_VALIDATION === "true"

@@ -5,6 +5,7 @@ import http from "http";
 //User-defined Modules
 import envConfig from "./dotenv";
 import rootDir from "./rootPath";
+import dbConnection from "./connection";
 import allowCrossDomain from "../api/middlewares/crossorigin.middleware";
 
 //Third-party Modules
@@ -15,7 +16,6 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import openApiMiddleware from "../api/middlewares/openapi.middleware";
-import routes from "../routes";
 import errorHandler from "../api/middlewares/errorHandler.middleware";
 
 // Initializing an express server
@@ -25,6 +25,8 @@ const app = express();
 export default class ExpressServer {
   constructor() {
     envConfig;
+    //Database Connection 
+    dbConnection();
     app.use(cors());
     app.use(allowCrossDomain);
     app.use(
@@ -40,6 +42,9 @@ export default class ExpressServer {
     );
     app.use(cookieParser(process.env.SESSION_SECRET));
 
+    //express middleware to be able to get request body as json
+    app.use(express.json());
+
     //Definig static values
     app.use(express.static(`${rootDir}/static`));
 
@@ -48,13 +53,14 @@ export default class ExpressServer {
   }
 
   //Routes Method for handling routes for application
-  routesMethod() {
+  routesMethod(routes: (app:Application) => void): ExpressServer {
     /*
       Note: Always use all api routes call before passing express server through error handler middleware
     */
     routes(app);
     //Using error handler middleware
     app.use(errorHandler);
+    return this;
   }
 
   //Method for listening requests to server
