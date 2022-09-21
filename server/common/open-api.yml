@@ -1,0 +1,63 @@
+openapi: "3.0.1"
+info:
+  version: 1.0.0
+  title: "hotel booking application backend"
+  description: "Hotel Booking Application Backend"
+  contact:
+    name: "Basanta Sapkota"
+    email: "sapkota.basanta46@gmail.com"
+    url: "user url"
+servers:
+  - url: "/api/v1"
+  - description: "Server Description like it is being used for development"
+tags:
+  name: "CRUD Operations"
+paths:
+  /api-endpoint:
+    get:
+      tags:
+        - "CRUD Operations"
+      description: "Description About the api endpoint and its use case along with its headers and session secret."
+      operationId: "Example = getUsers"
+      parameters:
+        - name: "parameter name"
+          in: header | path | query
+          description: "description about it"
+          required: false|true
+          schema:
+            $ref: "Reference to a schema defined in components #/components/schemas/companyId"
+        - name: "another paramter name"
+          in: header | path | query
+          description: "description about it"
+          required: false
+          schema:
+            type: integer | string
+            default: 1
+      responses: 
+        - 200:
+            description: "Description about how the response expected"
+            content: 
+              application/json:
+                schema:
+                  $ref: 'Reference to a schema #/componens/schemas/dashSchema'
+        - 400:
+            description: "Description about the response"
+            content: 
+              application/json:
+                schema: 
+                  type: integer
+                example: 
+                  message: "Error Message"
+                  internal_code: "Missing Parameters"
+components: 
+  schemas: 
+    - Schema1:
+        type: object
+        properties: 
+          - user:
+              $ref: "components schema reference"
+    - Schema2:
+        type: integer
+        description: "Description about the integer"
+        example: 1213
+      
